@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using CsvHelper.Configuration;
+using NLog;
+using NLog.Fluent;
 
 namespace MediaLibrary.Entities
 {
+    
     public class Movie
     {
         public long Id { get; set; }
@@ -12,6 +15,7 @@ namespace MediaLibrary.Entities
 
         public string ToPrettyString()
         {
+            Log.Debug();
             return $" - Movie {Id}: {Title}\n\t{string.Join(", ", Genres)}";
         }
     }
