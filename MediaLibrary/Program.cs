@@ -1,5 +1,6 @@
 ﻿using MediaLibrary.IO;
 using MediaLibrary.Menu;
+using MediaLibrary.Menu.MenuStuff.MainMenu;
 
 namespace MediaLibrary
 {
@@ -7,8 +8,8 @@ namespace MediaLibrary
     {
         public static void Main(string[] args)
         {
-            MainMenu menu = new MainMenu();
-            menu.Menu();
+            MainMenuActions menu = new MainMenuActions();
+            menu.RunMenu();
             //TODO 3 Implement with the following features in mind
             //todo Exception Handling
             //todo Logging framework

@@ -24,15 +24,10 @@ namespace MediaLibrary.IO
 
             newMovie.Id = lastId + 1;
             movies.Add(newMovie);
-            using (var writer = new StreamWriter(_filename))
-            {
-                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    csv.Context.RegisterClassMap<MovieMap>();
-                    csv.WriteRecords(movies);
-                }
-            }
-
+            using var writer = new StreamWriter(_filename);
+            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            csv.Context.RegisterClassMap<MovieMap>();
+            csv.WriteRecords(movies);
         }
         public List<Movie> GetAll()
         {

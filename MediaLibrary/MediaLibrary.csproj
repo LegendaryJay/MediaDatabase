@@ -82,7 +82,12 @@
         <Compile Include="Entities\Movie.cs" />
         <Compile Include="IO\scvIO.cs" />
         <Compile Include="Logging.cs" />
-        <Compile Include="Menu\MainMenu.cs" />
+        <Compile Include="Menu\MenuStuff\Core\CommandTuple.cs" />
+        <Compile Include="Menu\MenuStuff\Core\MenuStructure.cs" />
+        <Compile Include="Menu\MenuStuff\Core\MenuStructureCore.cs" />
+        <Compile Include="Menu\MenuStuff\Core\AddMovieMenuStructure.cs" />
+        <Compile Include="Menu\MenuStuff\DisplayMovies\DisplayMovieActions.cs" />
+        <Compile Include="Menu\MenuStuff\MainMenu\MainMenuActions.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
