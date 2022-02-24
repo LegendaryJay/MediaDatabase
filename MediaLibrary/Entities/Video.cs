@@ -7,24 +7,27 @@ using NLog.Fluent;
 namespace MediaLibrary.Entities
 {
     
-    public class Movie : Media
+    public class Video : Media
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
-        public List<string> Genres { get; set; }
+
+        private string format;
+        private int[] regions;
 
         public override string ToPrettyString()
         {
-            _log.Debug("Displaying Movie beautifully");
-            return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(", ", Genres)}";
+            _log.Debug("Displaying Video beautifully");
+            return $" - Movie {Id}: {Title}\n\tFormat: {format}\n\tRegions: {string.Join(", ",regions)}";
         }
     }
-    public sealed class MovieMap : ClassMap<Movie>
+    public sealed class VideoMap : ClassMap<Video>
     {
-        public MovieMap()
+        public VideoMap()
         {
             Map(m => m.Id).Index(0).Name("movieId");
             Map(m => m.Title).Index(1).Name("title");
-            Map(m =>  m.Genres).Index(2).Name("genres");
+            Map(m => m.Title).Index(2).Name("format");
+            Map(m => m.Title).Index(3).Name("regions");
         }
     }
 }

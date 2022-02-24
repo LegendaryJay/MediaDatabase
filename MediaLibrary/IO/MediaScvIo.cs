@@ -11,7 +11,7 @@ using NLog;
 
 namespace MediaLibrary.IO
 {
-    public class ScvIo
+    public class MediaScvIo
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
         private readonly string _filename = Path.Combine("../../", "Files", "movies.csv");

@@ -10,12 +10,12 @@ namespace MediaLibrary.Menu.MenuStuff.Core
     public class AddMovieMenuStructure : MenuStructureCore
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
-        private readonly ScvIo _scvIo;
+        private readonly MovieScvIo _movieScvIo;
         
-        public AddMovieMenuStructure(ScvIo scvIo)
+        public AddMovieMenuStructure(MovieScvIo movieScvIo)
         {
             _log.Trace("file IO instantiated");
-            _scvIo = scvIo;
+            _movieScvIo = movieScvIo;
 
         }
 
@@ -34,7 +34,7 @@ namespace MediaLibrary.Menu.MenuStuff.Core
             if (genres.Count > 1)
             {
                 _log.Debug("Attempting to add new movie");
-                _scvIo.AddNewMovie(new Movie()
+                _movieScvIo.AddNewMovie(new Movie()
                 {
                     Title = testName,
                     Genres = genres

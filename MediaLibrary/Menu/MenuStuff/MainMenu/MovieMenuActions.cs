@@ -9,13 +9,13 @@ namespace MediaLibrary.Menu.MenuStuff.MainMenu
     public class MainMenuActions
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
-        private readonly ScvIo _scvFile;
+        private readonly MovieScvIo _scvFile;
         private readonly DisplayMovieActions _displayMovieActions;
 
         public MainMenuActions()
         {
             _log.Trace("MainMenuActions Instantiated");
-            _scvFile = new ScvIo();
+            _scvFile = new MovieScvIo();
             _displayMovieActions = new DisplayMovieActions(_scvFile.GetAll());
         }
         
