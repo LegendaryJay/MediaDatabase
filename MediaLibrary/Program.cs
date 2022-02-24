@@ -11,7 +11,7 @@ namespace MediaLibrary
         private static readonly NLog.Logger Log = LogManager.GetCurrentClassLogger();
         public static void Main(string[] args)
         {
-            var menu = new MainMenuActions();
+            var menu = new MovieMenuActions();
             menu.RunMenu();
             
             //I dont have much to exception handle :(

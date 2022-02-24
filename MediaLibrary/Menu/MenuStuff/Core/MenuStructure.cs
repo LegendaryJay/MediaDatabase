@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Text;
+using MediaLibrary.Menu.MenuStuff.Core2;
 using Microsoft.Win32;
 using NLog;
 
 namespace MediaLibrary.Menu.MenuStuff.Core
 {
-    public class MenuStructure : MenuStructureCore
+    public class MenuStructure : MenuStructureTools
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
         private readonly Action _introAction;
@@ -25,7 +26,7 @@ namespace MediaLibrary.Menu.MenuStuff.Core
             _complexCommands = complexCommands;
         }
 
-        public override void Run()
+        public  void Run()
         {
             _log.Trace("MenuStructure Running");
             while (true)

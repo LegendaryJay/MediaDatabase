@@ -6,13 +6,13 @@ using NLog;
 
 namespace MediaLibrary.Menu.MenuStuff.MainMenu 
 {
-    public class MainMenuActions
+    public class MovieMenuActions
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
         private readonly MovieScvIo _scvFile;
         private readonly DisplayMovieActions _displayMovieActions;
 
-        public MainMenuActions()
+        public MovieMenuActions()
         {
             _log.Trace("MainMenuActions Instantiated");
             _scvFile = new MovieScvIo();

@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using MediaLibrary.Menu.MenuStuff.Core;
 using NLog;
 
-namespace MediaLibrary.Menu.MenuStuff.Core
+namespace MediaLibrary.Menu.MenuStuff.Core2
 {
-    public abstract class MenuStructureCore
+    public abstract class MenuStructureTools
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
         private const string ExitString = "x";
-        public abstract void Run();
-
         protected bool IsExit(string str)
         {
             _log.Trace($"Found exitable string: {str}");
             return string.IsNullOrEmpty(str) ||
                 string.Equals(str, ExitString, StringComparison.OrdinalIgnoreCase);
         }
-
+        
         protected static string Input(string question)
         {
             Console.WriteLine(question);
@@ -25,7 +24,7 @@ namespace MediaLibrary.Menu.MenuStuff.Core
 
         private static string Input()
         {
-            Console.WriteLine("\nTo Cancel/Exit Press " + ExitString);
+            Console.WriteLine("\nTo cancel/exit enter " + ExitString);
             return Console.ReadLine()?.Trim();
         }
         

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using CsvHelper;
 using MediaLibrary.Entities;
 using MediaLibrary.IO;
+using MediaLibrary.Menu.MenuStuff.Core2;
 using NLog;
 
 namespace MediaLibrary.Menu.MenuStuff.Core
 {
-    public class AddMovieMenuStructure : MenuStructureCore
+    public class AddMovieMenuStructure : MenuStructureTools
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
         private readonly MovieScvIo _movieScvIo;

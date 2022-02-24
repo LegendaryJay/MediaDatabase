@@ -11,50 +11,47 @@ using NLog;
 
 namespace MediaLibrary.IO
 {
-    public class MediaScvIo
+    public abstract class MediaScvIo
     {
         private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
-        private readonly string _filename = Path.Combine("../../", "Files", "movies.csv");
-        public void AddNewMovie(Movie newMovie)
+        protected readonly string Filename;
+
+        protected MediaScvIo(string fileTitle)
         {
-            _log.Trace("New movie being created");   
             
-            var movies = GetAll();
-            _log.Trace("Got all movies");
+            Filename = Path.Combine("../../", "Files", fileTitle);
+        }
+
+        public void AddRow(Media newMedia)
+        {
+            _log.Trace("New media being created");   
             
-            var lastId = movies.Select(movie => movie.Id).Max();
-            _log.Debug($"Movies Highest ID is {lastId}");
+            var medias = GetAll();
+            _log.Trace("Got all Media");
             
-            if (movies.Any(movie => movie.Title == newMovie.Title))
+            var lastId = medias.Select(movie => movie.Id).Max();
+            _log.Debug($"Media's Highest ID is {lastId}");
+            
+            if (medias.Any(media => media.Title == newMedia.Title))
             {
-                _log.Info($"Repeat movie inputted. user input: {newMovie.Title}");
+                _log.Info($"Repeat Media input. user input: {newMedia.Title}");
                 Console.WriteLine("Um, I think that one already exists :(");
                 return;
             }
             
-            newMovie.Id = lastId + 1;
-            movies.Add(newMovie);
-            using var writer = new StreamWriter(_filename);
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.Context.RegisterClassMap<MovieMap>();
-            csv.WriteRecords(movies);
-            _log.Info("New Movie Added.");
+            newMedia.Id = lastId + 1;
+            medias.Add(newMedia);
+            FileWrite(medias);
+            _log.Info("New Media Added.");
         }
-        public List<Movie> GetAll()
+
+        protected abstract void FileWrite(IEnumerable<Media> media);
+        protected abstract List<Media> FileRead();
+        
+        public List<Media> GetAll()
         {
-            IEnumerable<Movie> records;
-
-            using (var reader = new StreamReader(_filename))
-            {
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    csv.Context.RegisterClassMap<MovieMap>();
-
-                    records = csv.GetRecords<Movie>().ToList();
-                }
-            }
             _log.Trace("Movies Pulled from records");
-            return new List<Movie>(records);
+            return FileRead();
         }
     }
 }
