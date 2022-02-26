@@ -1,59 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using MediaLibrary.Menu.MenuStuff.Core;
 using NLog;
 
-namespace MediaLibrary.Menu.MenuStuff.Core2
+namespace MediaLibrary.Menu.Core
 {
     public class MenuTypes : MenuStructureTools
     {
-        private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
-        public void DisplayTypeMenu(params CommandTuple[] commandTuples)
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
+
+        protected void DisplayTypeMenu(Action displayAction, params CommandTuple[] commandTuples)
         {
-            commandTuples[0].Run();
-            MultipleChoiceTypeMenu(commandTuples.Skip(1).ToArray());
+            displayAction();
+            MultipleChoiceTypeMenu(commandTuples);
         }
 
-        public List<string> OpenEndedTypeMenu(params string[] questions)
+        public List<string> OpenEndedTypeMenu(params OpenQuestionTuple[] openQuestionTuples)
         {
             var returnVal = new List<string>();
-            foreach (var t in questions)
+            foreach (var t in openQuestionTuples)
             {
-                if (t.StartsWith("$"))
+                var input = Input(t);
+                if (input is null)
                 {
-                    var listInput = RepeatInput(t.Substring(1));
-                    returnVal.Add(string.Join("|", listInput));
+                    return null;
                 }
                 else
                 {
-                    var input = Input(t);
-                    if (IsExit(input))
-                    {
-                        return returnVal;
-                    }
                     returnVal.Add(input);
                 }
-                
             }
 
             return returnVal;
         }
 
-        public void MultipleChoiceTypeMenu(string intro, params CommandTuple[] commandTuples)
+        protected void MultipleChoiceTypeMenu(string intro, params CommandTuple[] commandTuples)
         {
             Console.WriteLine(intro);
             MultipleChoiceTypeMenu(commandTuples);
         }
-        public void MultipleChoiceTypeMenu(params CommandTuple[] commandTuples)
+
+        protected void MultipleChoiceTypeMenu(params CommandTuple[] commandTuples)
         {
             var stringBuilder = new StringBuilder();
             //CommandList
             for (var i = 0; i < commandTuples.Length; i++)
-            {
                 stringBuilder.AppendLine("\t" + (i + 1) + ") " + commandTuples[i].Name);
-            }
 
             var input = Input(stringBuilder.ToString());
 
@@ -66,7 +58,7 @@ namespace MediaLibrary.Menu.MenuStuff.Core2
 
             //validation
             int.TryParse(input, out var selection);
-            if (selection < 1 | selection > commandTuples.Length)
+            if ((selection < 1) | (selection > commandTuples.Length))
             {
                 _log.Info($"User input failed. Expected between 1 and {commandTuples.Length} but got {input}");
                 Console.WriteLine("I don't understand, Could you try that again?");

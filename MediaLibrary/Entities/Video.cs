@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using CsvHelper.Configuration;
+﻿using CsvHelper.Configuration;
 using NLog;
-using NLog.Fluent;
 
 namespace MediaLibrary.Entities
 {
-    
     public class Video : Media
     {
-        private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        private string format;
-        private int[] regions;
+        public string Format{ get; set; }
+        public int[] Regions{ get; set; }
 
         public override string ToPrettyString()
         {
             _log.Debug("Displaying Video beautifully");
-            return $" - Movie {Id}: {Title}\n\tFormat: {format}\n\tRegions: {string.Join(", ",regions)}";
+            return $" - Movie {Id}: {Title}\n\tFormat: {Format}\n\tRegions: {string.Join(", ", Regions)}";
         }
     }
+
     public sealed class VideoMap : ClassMap<Video>
     {
         public VideoMap()

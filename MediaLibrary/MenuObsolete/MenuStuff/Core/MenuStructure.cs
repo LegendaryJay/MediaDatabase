@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using MediaLibrary.Menu.MenuStuff.Core2;
+using MediaLibrary.Menu.MenuRelated.Core;
 using Microsoft.Win32;
 using NLog;
 

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CsvHelper.Configuration;
 using NLog;
-using NLog.Fluent;
 
 namespace MediaLibrary.Entities
 {
-    
     public class Movie : Media
     {
-        private readonly NLog.Logger _log = LogManager.GetCurrentClassLogger();
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
         public List<string> Genres { get; set; }
 
         public override string ToPrettyString()
@@ -18,13 +15,15 @@ namespace MediaLibrary.Entities
             return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(", ", Genres)}";
         }
     }
+
     public sealed class MovieMap : ClassMap<Movie>
     {
         public MovieMap()
         {
+            
             Map(m => m.Id).Index(0).Name("movieId");
             Map(m => m.Title).Index(1).Name("title");
-            Map(m =>  m.Genres).Index(2).Name("genres");
+            Map(m => m.Genres).Index(2).Name("genres");
         }
     }
 }

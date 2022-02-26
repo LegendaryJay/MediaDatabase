@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using CsvHelper;
-using MediaLibrary.Entities;
+﻿using MediaLibrary.Entities;
 using MediaLibrary.IO;
-using MediaLibrary.Menu.MenuStuff.Core2;
+using MediaLibrary.Menu.MenuRelated.Core;
 using NLog;
 
-namespace MediaLibrary.Menu.MenuStuff.Core
+namespace MediaLibrary.MenuObsolete.MenuStuff.Core
 {
     public class AddMovieMenuStructure : MenuStructureTools
     {
