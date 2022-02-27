@@ -106,6 +106,8 @@
         <Compile Include="Entities\Movie.cs" />
         <Compile Include="Entities\Show.cs" />
         <Compile Include="Entities\Video.cs" />
+        <Compile Include="IO\CsvIo.cs" />
+        <Compile Include="IO\IFileIO.cs" />
         <Compile Include="IO\MediaFileIO.cs" />
         <Compile Include="IO\MovieFileIO.cs" />
         <Compile Include="IO\ShowFileIO.cs" />

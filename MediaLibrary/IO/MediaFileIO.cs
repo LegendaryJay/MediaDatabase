@@ -10,48 +10,13 @@ namespace MediaLibrary.IO
     public abstract class MediaFileIo
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        protected readonly string Filename;
-
-        protected MediaFileIo(string fileTitle)
+        private readonly IFileIo _fileIo;
+        protected MediaFileIo(IFileIo fileIo)
         {
-            Filename = Path.Combine("../../", "Files", fileTitle);
-
-            ValidateFile();
+            _fileIo = fileIo;
         }
 
-        public bool ValidateFile()
-        {
-            if (File.Exists(Filename)) return true;
-            try
-            {
-                File.Create(Filename);
-                
-                CreateFileHeader();
-                
-
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                _log.Fatal(e);
-                Console.WriteLine("File Unable to be created: no permissions");
-                throw new UnauthorizedAccessException();
-            }
-            catch (IOException e)
-            {
-                _log.Fatal(e);
-                Console.WriteLine("File Unable to be created: IO problem");
-                throw new IOException();
-            }
-
-            return true;
-            }
-
-            protected abstract void WriteMediaToFile(List<Media> medias);
-            protected abstract List<Media> ReadFile();
-            protected abstract void CreateFileHeader();
-        
-        
-            public void AddMedia(Media newMedia)
+        public void AddMedia(Media newMedia)
             {
                 _log.Trace("New media being created");
 
@@ -71,15 +36,15 @@ namespace MediaLibrary.IO
                 newMedia.Id = lastId + 1;
                 medias.Add(newMedia);
 
-                
-                WriteMediaToFile(medias);
+
+                _fileIo.WriteFile(medias);
                 _log.Info("New Media Added.");
             }
 
             public List<Media> GetAll()
             {
                 _log.Trace("Movies Pulled from records");
-                return ReadFile();
+                return (List<Media>) _fileIo.GetAllMedia();
             }
         }
     }
