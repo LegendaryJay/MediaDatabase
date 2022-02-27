@@ -7,8 +7,8 @@ namespace MediaLibrary.Entities
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public string Format{ get; set; }
-        public int[] Regions{ get; set; }
+        public string Format { get; set; }
+        public int[] Regions { get; set; }
 
         public override string ToPrettyString()
         {

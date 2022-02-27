@@ -20,7 +20,6 @@ namespace MediaLibrary.Entities
     {
         public MovieMap()
         {
-            
             Map(m => m.Id).Index(0).Name("movieId");
             Map(m => m.Title).Index(1).Name("title");
             Map(m => m.Genres).Index(2).Name("genres");

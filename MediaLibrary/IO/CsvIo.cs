@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using CsvHelper;
 using MediaLibrary.Entities;
-using MediaLibrary.Menu.Core;
 using NLog;
 
 namespace MediaLibrary.IO
@@ -21,9 +20,34 @@ namespace MediaLibrary.IO
             ValidateFile();
         }
 
-        private bool ValidateFile()
+        public void CreateFile()
         {
-            if (File.Exists(_filePath)) return true;
+            using var writer = new StreamWriter(_filePath);
+            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            csv.WriteHeader<T>();
+        }
+
+
+        public void WriteFile(List<Media> medias)
+        {
+            using var writer = new StreamWriter(_filePath);
+            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            csv.Context.RegisterClassMap<ShowMap>();
+            csv.WriteRecords(medias);
+        }
+
+        public IEnumerable<Media> GetAllMedia()
+        {
+            using var reader = new StreamReader(_filePath);
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            csv.Context.RegisterClassMap<MovieMap>();
+
+            return csv.GetRecords<Media>().ToList();
+        }
+
+        private void ValidateFile()
+        {
+            if (File.Exists(_filePath)) return;
             try
             {
                 File.Create(_filePath);
@@ -42,33 +66,6 @@ namespace MediaLibrary.IO
                 Console.WriteLine("File Unable to be created: IO problem");
                 throw new IOException();
             }
-
-            return true;
-        }
-
-        public void CreateFile()
-        {
-            using var writer = new StreamWriter(_filePath);
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.WriteHeader<T>();
-        }
-        
-
-        public void WriteFile(List<Media> medias)
-        {
-            using var writer = new StreamWriter(_filePath);
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.Context.RegisterClassMap<ShowMap>();
-            csv.WriteRecords(medias);
-        }
-
-        public IEnumerable<Media> GetAllMedia()
-        {
-            using var reader = new StreamReader(_filePath);
-            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            csv.Context.RegisterClassMap<MovieMap>();
-
-            return csv.GetRecords<Media>().ToList();
         }
     }
 }

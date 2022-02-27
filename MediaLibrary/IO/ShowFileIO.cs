@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using CsvHelper;
-using MediaLibrary.Entities;
+﻿using MediaLibrary.Entities;
 using NLog;
 
 namespace MediaLibrary.IO

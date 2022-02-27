@@ -9,5 +9,4 @@ namespace MediaLibrary.IO
         public void WriteFile(List<Media> medias);
         public IEnumerable<Media> GetAllMedia();
     }
-
 }

@@ -11,11 +11,11 @@ namespace MediaLibrary.Menu.Menus
     public class MediaMenu : MenuTypes
     {
         private const int ItemsPerPage = 5;
-        private readonly Logger _log = LogManager.GetCurrentClassLogger();
         private readonly MediaFileIo _fileIo;
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
         private List<Media> _medias;
         private int _page;
-        private OpenQuestionTuple[] questions;
+        private readonly OpenQuestionTuple[] questions;
 
         public MediaMenu(MediaFileIo fileIo, OpenQuestionTuple[] questions)
         {
@@ -74,7 +74,6 @@ namespace MediaLibrary.Menu.Menus
                 new CommandTuple("Previous Page", Previous),
                 new CommandTuple("Next Page", Next)
             );
-            
         }
 
         private void Add()

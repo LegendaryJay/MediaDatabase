@@ -28,10 +28,7 @@ namespace MediaLibrary.Menu.Core
             {
                 var value = new List<string>();
                 var input = LoneInput(openQuestionTuple);
-                if (input is null)
-                {
-                    return value.Count > 1 ? string.Join(",", value) : null;
-                }
+                if (input is null) return value.Count > 1 ? string.Join(",", value) : null;
                 value.Add(input);
             }
         }
@@ -39,10 +36,7 @@ namespace MediaLibrary.Menu.Core
         private static string LoneInput(OpenQuestionTuple openQuestionTuple)
         {
             var input = Input(openQuestionTuple.Question);
-            if (IsExit(input))
-            {
-                return null;
-            }
+            if (IsExit(input)) return null;
 
             return openQuestionTuple.Validate(input) ? input : null;
         }

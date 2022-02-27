@@ -1,6 +1,4 @@
-﻿using System.CodeDom;
-using System.Runtime.InteropServices;
-using MediaLibrary.IO;
+﻿using MediaLibrary.IO;
 using MediaLibrary.Menu.Core;
 
 namespace MediaLibrary.Menu.Menus
@@ -32,9 +30,9 @@ namespace MediaLibrary.Menu.Menus
         {
             var mediaMenu = new MediaMenu(
                 new ShowFileIo(),
-                new OpenQuestionTuple[]
+                new[]
                 {
-                    new OpenQuestionTuple(
+                    new(
                         "What is the name?",
                         false,
                         x => x.Length > 1
@@ -70,9 +68,9 @@ namespace MediaLibrary.Menu.Menus
         {
             var mediaMenu = new MediaMenu(
                 new VideoFileIo(),
-                new OpenQuestionTuple[]
+                new[]
                 {
-                    new OpenQuestionTuple(
+                    new(
                         " format",
                         false,
                         x => x.Length > 0
@@ -81,7 +79,7 @@ namespace MediaLibrary.Menu.Menus
                         " regions",
                         false,
                         x => x.Length > 0
-                    ),
+                    )
                 }
             );
             mediaMenu.Run();

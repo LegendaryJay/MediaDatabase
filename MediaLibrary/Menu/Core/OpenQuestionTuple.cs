@@ -1,13 +1,12 @@
 ﻿using System;
-using Xunit.Sdk;
 
 namespace MediaLibrary.Menu.Core
 {
     public class OpenQuestionTuple : MenuStructureTools
     {
-        public readonly string Question;
-        public readonly bool IsList;
         private readonly Func<string, bool> _validator;
+        public readonly bool IsList;
+        public readonly string Question;
 
         public OpenQuestionTuple(string question, bool isList, Func<string, bool> validator)
         {

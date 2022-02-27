@@ -22,13 +22,8 @@ namespace MediaLibrary.Menu.Core
             {
                 var input = Input(t);
                 if (input is null)
-                {
                     return null;
-                }
-                else
-                {
-                    returnVal.Add(input);
-                }
+                returnVal.Add(input);
             }
 
             return returnVal;
