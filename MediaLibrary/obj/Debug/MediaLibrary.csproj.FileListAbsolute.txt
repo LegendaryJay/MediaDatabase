@@ -35,3 +35,6 @@ C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\xunit.abstract
 C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\xunit.assert.xml
 C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\xunit.core.xml
 C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\xunit.execution.desktop.xml
+C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\ConsoleMenu.dll
+C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\amore\RiderProjects\MediaDatabase\MediaLibrary\bin\Debug\System.Diagnostics.DiagnosticSource.xml

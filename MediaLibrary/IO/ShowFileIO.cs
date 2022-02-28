@@ -7,7 +7,7 @@ namespace MediaLibrary.IO
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public ShowFileIo() : base(new CsvIo<ShowMap>("shows.csv"))
+        public ShowFileIo() : base(new CsvIo<Show, ShowMap>("shows.csv"))
         {
         }
     }

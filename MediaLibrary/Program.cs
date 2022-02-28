@@ -1,5 +1,5 @@
 ﻿using System;
-using MediaLibrary.Menu.Menus;
+using MediaLibrary.SimpleMenu;
 using NLog;
 
 namespace MediaLibrary
@@ -12,8 +12,8 @@ namespace MediaLibrary
         {
             //I dont have much to exception handle :(
             //but I know how to do it
-            var topMenu = new TopMenu();
-            topMenu.Run();
+            MainMenu menu = new MainMenu();
+            menu.Run();
             try
             {
                 var i = int.Parse("Candy");

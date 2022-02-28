@@ -44,7 +44,7 @@ namespace MediaLibrary.IO
         public List<Media> GetAll()
         {
             _log.Trace("Movies Pulled from records");
-            return (List<Media>) _fileIo.GetAllMedia();
+            return _fileIo.GetAllMedia();
         }
     }
 }

@@ -7866,7 +7866,7 @@ movieId,title,genres
 89000,Carancho (2010),Crime|Drama|Romance
 89030,Fright Night (2011),Comedy|Horror
 89039,Another Earth (2011),Drama|Romance|Sci-Fi
-89045,"Rocky VI (1986) ",Comedy
+89045,Rocky VI (1986) ,Comedy
 89047,Hesher (2010),Drama
 89072,Stake Land (2010),Horror
 89085,"Debt, The (2011)",Drama|Thriller
@@ -7983,7 +7983,7 @@ movieId,title,genres
 92058,"Human Centipede II (Full Sequence), The (2011)",Horror
 92163,Fados (2007),Documentary|Musical
 92198,Seeking Justice (2011),Action|Drama|Thriller
-92206,"Hostel: Part III (2011) ",Horror|Thriller
+92206,Hostel: Part III (2011) ,Horror|Thriller
 92210,"Disappearance of Haruhi Suzumiya, The (Suzumiya Haruhi no shôshitsu) (2010)",Adventure|Animation|Drama|Mystery|Sci-Fi
 92234,Red Tails (2012),Action|Adventure|Drama|War
 92259,Intouchables (2011),Comedy|Drama
@@ -8047,7 +8047,7 @@ movieId,title,genres
 94466,Black Mirror (2011),Drama|Sci-Fi
 94478,Dark Shadows (2012),Comedy|Horror|IMAX
 94480,The Scorpion King: Rise of a Warrior (2008),Action|Adventure|Fantasy
-94494,"96 Minutes (2011) ",Drama|Thriller
+94494,96 Minutes (2011) ,Drama|Thriller
 94672,Across the Line: The Exodus of Charlie Wright (2010),Crime|Drama
 94677,"Dictator, The (2012)",Comedy
 94777,Men in Black III (M.III.B.) (M.I.B.³) (2012),Action|Comedy|Sci-Fi|IMAX
@@ -8398,7 +8398,7 @@ movieId,title,genres
 104441,"Frozen Ground, The (2013)",Crime|Drama|Thriller
 104457,You're Next (2011),Horror|Thriller
 104590,Tidal Wave (2009),Drama
-104595,"Family Band: The Cowsills Story (2011) ",Documentary
+104595,Family Band: The Cowsills Story (2011) ,Documentary
 104597,"Chicago 8, The (2011)",Drama
 104662,"First Nudie Musical, The (1976)",Comedy|Musical
 104726,Koch (2012),Documentary
@@ -8566,7 +8566,7 @@ movieId,title,genres
 110645,"Witching and Bitching (Brujas de Zugarramurdi, Las) (2014)",Comedy|Fantasy
 110655,Rio 2 (2014),Adventure|Animation|Children|Comedy
 110730,Transcendence (2014),Drama|Sci-Fi|IMAX
-110748,"Wake Wood (2010) ",Drama|Horror|Mystery
+110748,Wake Wood (2010) ,Drama|Horror|Mystery
 110752,Mondo Hollywood (1967),Documentary
 110771,"Other Woman, The (2014)",Comedy|Romance
 110781,Mulan II (2004),Action|Animation|Children|Comedy|Musical
@@ -9124,6 +9124,3 @@ movieId,title,genres
 163949,The Beatles: Eight Days a Week - The Touring Years (2016),Documentary
 164977,The Gay Desperado (1936),Comedy
 164979,"Women of '69, Unboxed",Documentary
-164980,Bruh,action
-164981,Pooky,action
-164982,Turkey,Action,Adventure

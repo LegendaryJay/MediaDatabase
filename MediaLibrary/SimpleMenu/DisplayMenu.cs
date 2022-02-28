@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using System.Text;
 using MediaLibrary.Entities;
 using MediaLibrary.IO;
-using MediaLibrary.Menu.Core;
 using NLog;
 
-namespace MediaLibrary.Menu.Menus
+namespace MediaLibrary.SimpleMenu
 {
-    public class MediaMenu : MenuTypes
+    public class DisplayMenu : MenuBase
     {
         private const int ItemsPerPage = 5;
         private readonly MediaFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
         private List<Media> _medias;
         private int _page;
-        private readonly OpenQuestionTuple[] questions;
+        private string _cachedPage;
 
-        public MediaMenu(MediaFileIo fileIo, OpenQuestionTuple[] questions)
+        public DisplayMenu(string title, MediaFileIo fileIo) : base($"{title} Display", 2)
         {
             _fileIo = fileIo;
-            this.questions = questions;
+            UpdatePage();
+            ThisMenu.Add("Previous", Previous)
+                .Add("Next", Next)
+                .Configure(
+                    config =>
+                    {
+                        config.WriteHeaderAction = Display;
+                    }
+                );
         }
 
         private void UpdateMedia()
@@ -32,6 +39,7 @@ namespace MediaLibrary.Menu.Menus
         private void ChangePage(int direction)
         {
             _page = (_page + direction + GetPages()) % GetPages();
+            UpdatePage();
             _log.Trace($"Changed Page to {_page}");
         }
 
@@ -50,46 +58,29 @@ namespace MediaLibrary.Menu.Menus
         private int GetPages()
         {
             _log.Trace("Got pages");
-            return (int) Math.Ceiling(_medias.Count / (double) ItemsPerPage);
+            return Math.Max(0, (int) Math.Ceiling(_medias.Count / (double) ItemsPerPage));
         }
 
-        private void DisplayPage()
+        private void UpdatePage()
         {
             UpdateMedia();
             var sb = new StringBuilder();
             sb.AppendLine($"Page {_page + 1} / {GetPages()}");
             for (var i = _page * ItemsPerPage; i < Math.Min((_page + 1) * ItemsPerPage, _medias.Count); i++)
                 sb.AppendLine(_medias[i].ToPrettyString());
-
-            Console.WriteLine(sb.ToString());
+            _cachedPage = sb.ToString();
             _log.Trace("Got list of Media");
         }
 
         private void Display()
         {
-            _page = 0;
-
-            DisplayTypeMenu(
-                DisplayPage,
-                new CommandTuple("Previous Page", Previous),
-                new CommandTuple("Next Page", Next)
-            );
+            Console.WriteLine(_cachedPage);
         }
 
-        private void Add()
+        public override void Run()
         {
-            OpenEndedTypeMenu(
-                questions
-            );
-        }
-
-        public void Run()
-        {
-            MultipleChoiceTypeMenu(
-                "What would you like to do with movies?",
-                new CommandTuple("Display Movie", Display),
-                new CommandTuple("Add Movie", Add)
-            );
+            base.Run();
+            Display();
         }
     }
 }
