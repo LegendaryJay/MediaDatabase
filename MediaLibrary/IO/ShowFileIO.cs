@@ -9,6 +9,7 @@ namespace MediaLibrary.IO
 
         public ShowFileIo() : base(new CsvIo<Show, ShowMap>("shows.csv"))
         {
+            Index = 1;
         }
     }
 }

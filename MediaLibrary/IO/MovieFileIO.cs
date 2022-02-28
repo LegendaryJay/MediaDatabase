@@ -9,6 +9,7 @@ namespace MediaLibrary.IO
 
         public MovieFileIo() : base(new CsvIo<Movie, MovieMap>("movies.csv"))
         {
+            Index = 0;
         }
     }
 }

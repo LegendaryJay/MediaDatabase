@@ -1,4 +1,5 @@
-﻿using CsvHelper.Configuration;
+﻿using System.Collections.Generic;
+using CsvHelper.Configuration;
 using NLog;
 
 namespace MediaLibrary.Entities
@@ -8,7 +9,7 @@ namespace MediaLibrary.Entities
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         public string Format { get; set; }
-        public int[] Regions { get; set; }
+        public List<int> Regions { get; set; }
 
         public override string ToPrettyString()
         {

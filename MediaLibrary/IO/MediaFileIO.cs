@@ -10,6 +10,7 @@ namespace MediaLibrary.IO
     {
         private readonly IFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
+        public int Index;
 
         protected MediaFileIo(IFileIo fileIo)
         {

@@ -209,6 +209,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AddMedia\MovieQuestions.cs" />
+        <Compile Include="AddMedia\Question.cs" />
+        <Compile Include="AddMedia\QuestionFactory.cs" />
+        <Compile Include="AddMedia\Questions.cs" />
+        <Compile Include="AddMedia\ShowQuestions.cs" />
+        <Compile Include="AddMedia\VideoQuestions.cs" />
         <Compile Include="Entities\Media.cs" />
         <Compile Include="Entities\Movie.cs" />
         <Compile Include="Entities\Show.cs" />

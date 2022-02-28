@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using CsvHelper;
 using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
 using NLog;
 
 namespace MediaLibrary.Entities
