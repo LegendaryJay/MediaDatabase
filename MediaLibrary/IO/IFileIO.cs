@@ -5,7 +5,7 @@ namespace MediaLibrary.IO
 {
     public interface IFileIo
     {
-        public void WriteFile(List<Media> medias);
+        public bool WriteFile(List<Media> medias);
         public List<Media> GetAllMedia();
     }
 }

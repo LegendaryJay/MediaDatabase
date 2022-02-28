@@ -32,16 +32,23 @@ namespace MediaLibrary.IO
         }
 
 
-        public void WriteFile(List<Media> medias)
+        public bool WriteFile(List<Media> medias)
         {
+            var newMedias = medias.ConvertAll(x => x as T1);
             using var writer = new StreamWriter(_filePath);
             using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.Context.RegisterClassMap<ShowMap>();
-            csv.WriteRecords(medias);
+            csv.Context.RegisterClassMap<T2>();
+            csv.WriteRecords(newMedias);
+            return true;
         }
 
         public List<Media> GetAllMedia()
         {
+            var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                ShouldQuote = args => false
+            };
+            
             using var reader = new StreamReader(_filePath);
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             csv.Context.RegisterClassMap<T2>();

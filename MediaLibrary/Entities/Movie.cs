@@ -12,7 +12,7 @@ namespace MediaLibrary.Entities
         public override string ToPrettyString()
         {
             _log.Debug("Displaying Movie beautifully");
-            return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(", ", Genres)}";
+            return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(" - ", Genres)}";
         }
     }
 

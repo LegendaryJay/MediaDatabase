@@ -14,7 +14,7 @@ namespace MediaLibrary.Entities
         public override string ToPrettyString()
         {
             _log.Debug("Displaying Video beautifully");
-            return $" - Movie {Id}: {Title}\n\tFormat: {Format}\n\tRegions: {string.Join(", ", Regions)}";
+            return $" - Video {Id}: {Title}\n\tFormat: {Format}\n\tRegions: {string.Join(", ", Regions)}";
         }
     }
 
@@ -25,7 +25,7 @@ namespace MediaLibrary.Entities
             Map(m => m.Id).Index(0).Name("movieId");
             Map(m => m.Title).Index(1).Name("title");
             Map(m => m.Format).Index(2).Name("format");
-            Map(m => m.Regions).TypeConverter(new ToStringArrayConverter()).Index(3).Name("regions");
+            Map(m => m.Regions).TypeConverter(new ToIntArrayConverter()).Index(3).Name("regions");
         }
     }
 }

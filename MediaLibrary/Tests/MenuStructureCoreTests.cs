@@ -15,7 +15,7 @@ namespace MediaLibrary.Tests
                 Genres = new List<string> {"Action", "Adventure"},
                 Title = "This Is a Title (2006)"
             };
-            Assert.Equal(" - Movie 1: This Is a Title (2006)\n\tAction, Adventure", movie.ToPrettyString());
+            Assert.Equal(" - Movie 1: This Is a Title (2006)\n\tGenres: Action - Adventure", movie.ToPrettyString());
         }
     }
 }

@@ -11,8 +11,9 @@ namespace MediaLibrary.AddMedia
         {
             QuestionList = new List<Question>
             {
-                new("What Movie do you want to add?", false),
-                new("What Genres does this movie include??", true)
+                new("What Video do you want to add?", false),
+                new("What Format is it in?", false),
+                new("What regions is it for?", true)
             };
         }
 

@@ -58,7 +58,7 @@ namespace MediaLibrary.SimpleMenu
         private int GetPages()
         {
             _log.Trace("Got pages");
-            return Math.Max(0, (int) Math.Ceiling(_medias.Count / (double) ItemsPerPage));
+            return Math.Max(1, (int) Math.Ceiling(_medias.Count / (double) ItemsPerPage));
         }
 
         private void UpdatePage()

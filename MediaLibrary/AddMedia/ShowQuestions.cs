@@ -19,14 +19,14 @@ namespace MediaLibrary.AddMedia
         protected override Media Convert(List<string> inputList)
         {
             return (
-                !int.TryParse(inputList[1], out var season) ||
+                !int.TryParse(inputList[1], out var seasons) ||
                 !int.TryParse(inputList[2], out var episodes)
             )
                 ? null
                 : new Show()
                 {
                     Title = inputList[0],
-                    Seasons = season,
+                    Seasons = seasons,
                     Episodes = episodes,
                     Writers = inputList[3].Split('|')
                 };

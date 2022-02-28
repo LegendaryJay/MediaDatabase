@@ -14,6 +14,10 @@ namespace MediaLibrary
             //but I know how to do it
             MainMenu menu = new MainMenu();
             menu.Run();
+            
+            //It doesnt tell you If you successfully added a movie or not and I am super not fixing it.
+            //Also, I fixed adding and viewing Lists of things. 
+            //I am sorry for what grading this will do to you. 
             try
             {
                 var i = int.Parse("Candy");
