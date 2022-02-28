@@ -1,31 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CsvHelper.Configuration;
 using NLog;
-using NLog.Fluent;
 
 namespace MediaLibrary.Entities
 {
-    
-    public class Movie
+    public class Movie : Media
     {
-        public long Id { get; set; }
-        public string Title { get; set; }
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
         public List<string> Genres { get; set; }
 
-        public string ToPrettyString()
+        public override string ToPrettyString()
         {
-            Log.Debug();
-            return $" - Movie {Id}: {Title}\n\t{string.Join(", ", Genres)}";
+            _log.Debug("Displaying Movie beautifully");
+            return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(" - ", Genres)}";
         }
     }
+
     public sealed class MovieMap : ClassMap<Movie>
     {
         public MovieMap()
         {
             Map(m => m.Id).Index(0).Name("movieId");
             Map(m => m.Title).Index(1).Name("title");
-            Map(m =>  m.Genres).Index(2).Name("genres");
+            Map(m => m.Genres).TypeConverter(new ToStringArrayConverter())
+                .Index(2).Name("genres");
+
         }
     }
 }

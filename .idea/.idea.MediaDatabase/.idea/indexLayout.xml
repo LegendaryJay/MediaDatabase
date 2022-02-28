@@ -3,6 +3,8 @@
   <component name="UserContentModel">
     <attachedFolders />
     <explicitIncludes />
-    <explicitExcludes />
+    <explicitExcludes>
+      <Path>MediaLibrary/MenuObsolete</Path>
+    </explicitExcludes>
   </component>
 </project>

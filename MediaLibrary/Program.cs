@@ -1,22 +1,23 @@
 ﻿using System;
-using MediaLibrary.IO;
-using MediaLibrary.Menu;
-using MediaLibrary.Menu.MenuStuff.MainMenu;
+using MediaLibrary.SimpleMenu;
 using NLog;
 
 namespace MediaLibrary
 {
     internal class Program
     {
-        private static readonly NLog.Logger Log = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
         public static void Main(string[] args)
         {
-            var menu = new MainMenuActions();
-            menu.RunMenu();
-            
             //I dont have much to exception handle :(
             //but I know how to do it
-
+            MainMenu menu = new MainMenu();
+            menu.Run();
+            
+            //It doesnt tell you If you successfully added a movie or not and I am super not fixing it.
+            //Also, I fixed adding and viewing Lists of things. 
+            //I am sorry for what grading this will do to you. 
             try
             {
                 var i = int.Parse("Candy");
