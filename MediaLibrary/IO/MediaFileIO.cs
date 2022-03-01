@@ -6,14 +6,15 @@ using NLog;
 
 namespace MediaLibrary.IO
 {
-    public abstract class MediaFileIo
+    public class MediaFileIo
     {
         private readonly IFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        public int Index;
+        public readonly int Index;
 
-        protected MediaFileIo(IFileIo fileIo)
+        public MediaFileIo(int index, IFileIo fileIo)
         {
+            Index = index;
             _fileIo = fileIo;
         }
 

@@ -5,7 +5,7 @@ namespace MediaLibrary.SimpleMenu
 {
     public class AddMenu
     {
-        private MediaFileIo _fileIo;
+        private readonly MediaFileIo _fileIo;
         private readonly Questions _questions;
         public AddMenu(MediaFileIo fileIo)
         {

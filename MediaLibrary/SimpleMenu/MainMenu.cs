@@ -9,19 +9,19 @@ namespace MediaLibrary.SimpleMenu
         {
             ThisMenu.Add("Movies", () =>
                     {
-                        var mediaMenu = new MediaMenu("Movies", new MovieFileIo());
+                        var mediaMenu = new MediaMenu("Movies", MediaFileIoFactory.Movie());
                         mediaMenu.Run();
                     }
                 )
                 .Add("Shows", () =>
                     {
-                        var mediaMenu = new MediaMenu("Shows", new ShowFileIo());
+                        var mediaMenu = new MediaMenu("Shows", MediaFileIoFactory.Show());
                         mediaMenu.Run();
                     }
                 )
                 .Add("Videos", () =>
                     {
-                        var mediaMenu = new MediaMenu("Videos", new VideoFileIo());
+                        var mediaMenu = new MediaMenu("Videos", MediaFileIoFactory.Video());
                         mediaMenu.Run();
                     }
                 );

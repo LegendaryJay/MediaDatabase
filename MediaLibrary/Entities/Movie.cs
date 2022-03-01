@@ -15,7 +15,7 @@ namespace MediaLibrary.Entities
             return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(" - ", Genres)}";
         }
     }
-
+    
     public sealed class MovieMap : ClassMap<Movie>
     {
         public MovieMap()
@@ -24,7 +24,6 @@ namespace MediaLibrary.Entities
             Map(m => m.Title).Index(1).Name("title");
             Map(m => m.Genres).TypeConverter(new ToStringArrayConverter())
                 .Index(2).Name("genres");
-
         }
     }
 }

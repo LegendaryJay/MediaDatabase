@@ -1,4 +1,6 @@
 ﻿using System;
+using MediaLibrary.Entities;
+using MediaLibrary.IO;
 using MediaLibrary.SimpleMenu;
 using NLog;
 
@@ -12,7 +14,11 @@ namespace MediaLibrary
         {
             //I dont have much to exception handle :(
             //but I know how to do it
-            MainMenu menu = new MainMenu();
+
+            //var movies = new CsvIo<Movie, MovieMap>("movies.csv").GetAllMedia();
+            //new JsonIo<Movie>("movies.json").WriteFile(movies);
+            
+            var menu = new MainMenu();
             menu.Run();
             
             //It doesnt tell you If you successfully added a movie or not and I am super not fixing it.
