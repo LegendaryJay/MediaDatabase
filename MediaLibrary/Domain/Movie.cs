@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using NLog;
 
-namespace MediaLibrary.Entities
+namespace MediaLibrary.Domain
 {
     public class Movie : Media
     {
@@ -15,7 +15,6 @@ namespace MediaLibrary.Entities
             return $" - Movie {Id}: {Title}\n\tGenres: {string.Join(" - ", Genres)}";
         }
     }
-    
     public sealed class MovieMap : ClassMap<Movie>
     {
         public MovieMap()

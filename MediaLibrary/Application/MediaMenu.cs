@@ -1,23 +1,24 @@
-﻿using MediaLibrary.IO;
+﻿using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 using NLog;
 
-namespace MediaLibrary.SimpleMenu
+namespace MediaLibrary.Application
 {
     public class MediaMenu : MenuBase
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public MediaMenu(string title, MediaFileIo fileIo) : base($"{title} Options", 1)
+        public MediaMenu(MediaType mediaType) : base($"{mediaType} Options", 1)
         {
             ThisMenu.Add("Display All", () =>
                     {
-                        var menu = new DisplayMenu(title, fileIo);
+                        var menu = new DisplayMenu(mediaType);
                         menu.Run();
                     }
                 )
                 .Add("Add to File", () =>
                     {
-                        var menu = new AddMenu(fileIo);
+                        var menu = new AddMenu(mediaType);
                         menu.Run();
                     }
                 );

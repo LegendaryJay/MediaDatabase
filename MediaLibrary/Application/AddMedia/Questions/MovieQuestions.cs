@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 
-namespace MediaLibrary.AddMedia
+namespace MediaLibrary.Application.AddMedia.Questions
 {
     public class MovieQuestions : Questions
     {
-        public MovieQuestions() 
+        public MovieQuestions() : base(MediaType.Movie)
         {
             QuestionList = new List<Question>
             {

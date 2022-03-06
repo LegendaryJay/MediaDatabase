@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
-using MediaLibrary.Entities;
+using System.Linq;
+using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 
-namespace MediaLibrary.AddMedia
+namespace MediaLibrary.Application.AddMedia.Questions
 {
     public class ShowQuestions : Questions
     {
-        public ShowQuestions()
+        public ShowQuestions() : base(MediaType.Show)
         {
             QuestionList = new List<Question>
             {
@@ -28,7 +30,7 @@ namespace MediaLibrary.AddMedia
                     Title = inputList[0],
                     Seasons = seasons,
                     Episodes = episodes,
-                    Writers = inputList[3].Split('|')
+                    Writers = inputList[3].Split('|').ToList()
                 };
         }
     }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
 using Xunit;
 
 namespace MediaLibrary.Tests

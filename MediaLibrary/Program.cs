@@ -1,12 +1,10 @@
 ﻿using System;
-using MediaLibrary.Entities;
-using MediaLibrary.IO;
-using MediaLibrary.SimpleMenu;
+using MediaLibrary.Application;
 using NLog;
 
 namespace MediaLibrary
 {
-    internal class Program
+    internal static class Program
     {
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 

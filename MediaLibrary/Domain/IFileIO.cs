@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using MediaLibrary.Entities;
 
-namespace MediaLibrary.IO
+namespace MediaLibrary.Domain
 {
     public interface IFileIo
     {

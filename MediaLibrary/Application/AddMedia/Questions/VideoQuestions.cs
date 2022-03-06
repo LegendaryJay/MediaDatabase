@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 
-namespace MediaLibrary.AddMedia
+namespace MediaLibrary.Application.AddMedia.Questions
 {
     public class VideoQuestions : Questions
     {
-        public VideoQuestions()
+        public VideoQuestions() : base(MediaType.Video)
         {
             QuestionList = new List<Question>
             {
@@ -41,11 +42,11 @@ namespace MediaLibrary.AddMedia
                 return null;
             }
             return new Video
-                {
-                    Title = inputList[0],
-                    Format = inputList[1],
-                    Regions = regionList
-                };
+            {
+                Title = inputList[0],
+                Format = inputList[1],
+                Regions = regionList
+            };
         }
     }
 }

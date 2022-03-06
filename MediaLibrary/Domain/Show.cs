@@ -1,14 +1,15 @@
-﻿using CsvHelper.Configuration;
+﻿using System.Collections.Generic;
+using CsvHelper.Configuration;
 using NLog;
 
-namespace MediaLibrary.Entities
+namespace MediaLibrary.Domain
 {
     public class Show : Media
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
         public int Seasons { get; set; }
         public int Episodes { get; set; }
-        public string[] Writers { get; set; }
+        public List<string> Writers { get; set; }
 
 
         public override string ToPrettyString()

@@ -1,7 +1,6 @@
-﻿using ConsoleTools;
-using MediaLibrary.IO;
+﻿using MediaLibrary.Infrastructure;
 
-namespace MediaLibrary.SimpleMenu
+namespace MediaLibrary.Application
 {
     public class MainMenu : MenuBase
     {
@@ -9,19 +8,19 @@ namespace MediaLibrary.SimpleMenu
         {
             ThisMenu.Add("Movies", () =>
                     {
-                        var mediaMenu = new MediaMenu("Movies", MediaFileIoFactory.Movie());
+                        var mediaMenu = new MediaMenu(MediaType.Movie);
                         mediaMenu.Run();
                     }
                 )
                 .Add("Shows", () =>
                     {
-                        var mediaMenu = new MediaMenu("Shows", MediaFileIoFactory.Show());
+                        var mediaMenu = new  MediaMenu(MediaType.Show);
                         mediaMenu.Run();
                     }
                 )
                 .Add("Videos", () =>
                     {
-                        var mediaMenu = new MediaMenu("Videos", MediaFileIoFactory.Video());
+                        var mediaMenu = new MediaMenu(MediaType.Video);
                         mediaMenu.Run();
                     }
                 );

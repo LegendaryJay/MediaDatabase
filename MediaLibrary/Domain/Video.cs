@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using NLog;
 
-namespace MediaLibrary.Entities
+namespace MediaLibrary.Domain
 {
     public class Video : Media
     {

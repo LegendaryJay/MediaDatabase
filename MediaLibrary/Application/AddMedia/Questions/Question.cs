@@ -1,4 +1,4 @@
-﻿namespace MediaLibrary.AddMedia
+﻿namespace MediaLibrary.Application.AddMedia.Questions
 {
     public class Question
     {

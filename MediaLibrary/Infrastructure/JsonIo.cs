@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using NLog;
 
-namespace MediaLibrary.IO
+namespace MediaLibrary.Infrastructure
 {
     public class JsonIo<T>
         : IFileIo
@@ -17,9 +14,9 @@ namespace MediaLibrary.IO
         private readonly string _filePath;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public JsonIo(string fileName)
+        public JsonIo(MediaType mediaType)
         {
-            _filePath = Path.Combine("../../", "Files", fileName);
+            _filePath = Path.Combine("../../", "Files", mediaType.ToPluralString() + ".json");
             
             ValidateFile();
         }

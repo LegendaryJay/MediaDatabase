@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MediaLibrary.Entities;
+using MediaLibrary.Application;
+using MediaLibrary.Infrastructure;
 using NLog;
 
-namespace MediaLibrary.IO
+namespace MediaLibrary.Domain
 {
     public class MediaFileIo
     {
         private readonly IFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        public readonly int Index;
+        public readonly MediaType MediaType;
 
-        public MediaFileIo(int index, IFileIo fileIo)
+        public MediaFileIo(MediaType mediaType, IFileIo fileIo)
         {
-            Index = index;
             _fileIo = fileIo;
+            MediaType = mediaType;
         }
 
         public void AddMedia(Media newMedia)

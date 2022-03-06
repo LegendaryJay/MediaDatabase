@@ -5,10 +5,10 @@ using System.IO;
 using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
 using NLog;
 
-namespace MediaLibrary.IO
+namespace MediaLibrary.Infrastructure
 {
     public class CsvIo<T1, T2> : IFileIo 
         where T1 : Media 
@@ -17,9 +17,9 @@ namespace MediaLibrary.IO
         private readonly string _filePath;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public CsvIo(string fileName)
+        public CsvIo(MediaType mediaType)
         {
-            _filePath = Path.Combine("../../", "Files", fileName);
+            _filePath = Path.Combine("../../", "Files", mediaType.ToPluralString() + ".csv");
             
             ValidateFile();
         }

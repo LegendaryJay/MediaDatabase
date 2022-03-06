@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using MediaLibrary.Entities;
+using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 
-namespace MediaLibrary.AddMedia
+namespace MediaLibrary.Application.AddMedia.Questions
 {
     public abstract class Questions
     {
         protected static List<Question> QuestionList;
-        
+        private MediaType _mediaType; 
         private const string CancelKey = "X";
 
+        protected Questions(MediaType mediaType)
+        {
+            _mediaType = mediaType;
+        }
 
         protected abstract Media Convert(List<string> inputList);
 
         private static bool IsExit(string str)
         {
             return string.IsNullOrWhiteSpace(str)
-                   || string.Equals(str.Trim(), CancelKey, comparisonType: StringComparison.OrdinalIgnoreCase);
+                   || string.Equals(str.Trim(), CancelKey, StringComparison.OrdinalIgnoreCase);
         }
 
         private static string Input()
@@ -33,6 +37,14 @@ namespace MediaLibrary.AddMedia
             return Input();
         }
 
+        public void AddQuestion(Question question)
+        {
+            QuestionList.Add(question);
+        }
+        public void AddQuestion(params Question[] questions)
+        {
+            QuestionList.AddRange(questions);
+        }
         private static string RepeatInput(string str)
         {
             var strList = new List<string>();
@@ -52,7 +64,7 @@ namespace MediaLibrary.AddMedia
             }
         }
 
-        public Media Ask()
+        public void Ask()
         {
             var results =
                 QuestionList.Select(
@@ -60,10 +72,18 @@ namespace MediaLibrary.AddMedia
                     )
                     .ToList();
 
-            if (!results.ToList().Any(x => x is null)) return Convert(results);
-            Console.WriteLine("Could Not Validate :(");
-            return null;
-
+            if (!results.ToList().Any(x => x is null))
+            {
+                var media = Convert(results);
+                Console.WriteLine("Writing to file");
+                Console.WriteLine(media.ToPrettyString());
+                MediaFileIoFactory.GetFileIo(_mediaType).AddMedia(media);
+                
+            }
+            else
+            {
+                Console.WriteLine("Could Not Validate :(");
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MediaLibrary.Entities;
-using MediaLibrary.IO;
+using MediaLibrary.Domain;
+using MediaLibrary.Infrastructure;
 using NLog;
 
-namespace MediaLibrary.SimpleMenu
+namespace MediaLibrary.Application
 {
     public class DisplayMenu : MenuBase
     {
@@ -16,9 +16,9 @@ namespace MediaLibrary.SimpleMenu
         private int _page;
         private string _cachedPage;
 
-        public DisplayMenu(string title, MediaFileIo fileIo) : base($"{title} Display", 2)
+        public DisplayMenu(MediaType mediaType) : base($"{mediaType.ToPluralString()} Display", 2)
         {
-            _fileIo = fileIo;
+            _fileIo = MediaFileIoFactory.GetFileIo(mediaType);
             UpdatePage();
             ThisMenu.Add("Previous", Previous)
                 .Add("Next", Next)
