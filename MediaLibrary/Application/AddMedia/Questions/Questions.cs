@@ -9,7 +9,7 @@ namespace MediaLibrary.Application.AddMedia.Questions
     public abstract class Questions
     {
         protected static List<Question> QuestionList;
-        private MediaType _mediaType; 
+        private readonly MediaType _mediaType; 
         private const string CancelKey = "X";
 
         protected Questions(MediaType mediaType)
