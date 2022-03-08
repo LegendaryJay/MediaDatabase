@@ -1,5 +1,6 @@
 ﻿using System;
 using MediaLibrary.Application.AddMedia;
+using MediaLibrary.Application.AddMedia.MediaEnum;
 using MediaLibrary.Infrastructure;
 
 namespace MediaLibrary.Application
@@ -20,6 +21,7 @@ namespace MediaLibrary.Application
             }
             catch (Exception e)
             {
+                //Ignore
                 Console.WriteLine("Something went wrong");
             }
             finally

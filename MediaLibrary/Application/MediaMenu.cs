@@ -1,4 +1,5 @@
-﻿using MediaLibrary.Infrastructure;
+﻿using MediaLibrary.Application.AddMedia.MediaEnum;
+using MediaLibrary.Infrastructure;
 using NLog;
 
 namespace MediaLibrary.Application

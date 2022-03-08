@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MediaLibrary.Application.AddMedia.MediaEnum;
 using MediaLibrary.Domain;
 using MediaLibrary.Infrastructure;
 using NLog;

@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
+using MediaLibrary.Application.AddMedia.MediaEnum;
 using MediaLibrary.Domain;
 using NLog;
 
-namespace MediaLibrary.Infrastructure
+namespace MediaLibrary.Infrastructure.CsvClasses
 {
     public class CsvIo<T1, T2> : IFileIo 
         where T1 : Media 

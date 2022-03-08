@@ -222,6 +222,8 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Application\AddMedia\IQuestions.cs" />
+        <Compile Include="Application\AddMedia\MediaEnum\MediaType.cs" />
+        <Compile Include="Application\AddMedia\MediaEnum\MediaTypeExtensions.cs" />
         <Compile Include="Application\AddMedia\QuestionComponents\Question.cs" />
         <Compile Include="Application\AddMedia\QuestionComponents\QuestionBase.cs" />
         <Compile Include="Application\AddMedia\QuestionComponents\QuestionList.cs" />
@@ -233,10 +235,14 @@
         <Compile Include="Domain\Movie.cs" />
         <Compile Include="Domain\Show.cs" />
         <Compile Include="Domain\Video.cs" />
-        <Compile Include="Infrastructure\CsvIo.cs" />
+        <Compile Include="Infrastructure\CsvClasses\CsvIo.cs" />
+        <Compile Include="Infrastructure\CsvClasses\ToIntArrayConverter.cs" />
+        <Compile Include="Infrastructure\CsvClasses\ToStringArrayConverter.cs" />
         <Compile Include="Infrastructure\JsonIo.cs" />
         <Compile Include="Infrastructure\MediaFileIOFactory.cs" />
-        <Compile Include="Infrastructure\MediaType.cs" />
+        <Compile Include="Infrastructure\CsvClasses\MovieMap.cs" />
+        <Compile Include="Infrastructure\CsvClasses\ShowMap.cs" />
+        <Compile Include="Infrastructure\CsvClasses\VideoMap.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Application\AddMenu.cs" />

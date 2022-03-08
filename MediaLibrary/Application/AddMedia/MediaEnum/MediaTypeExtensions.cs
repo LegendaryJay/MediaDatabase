@@ -1,14 +1,7 @@
 ﻿using System;
 
-namespace MediaLibrary.Infrastructure
+namespace MediaLibrary.Application.AddMedia.MediaEnum
 {
-    public enum MediaType
-    {
-        Movie,
-        Video,
-        Show
-    }
-
     public static class MediaTypeExtensions
     {
         public static string ToPluralString(this MediaType mt)

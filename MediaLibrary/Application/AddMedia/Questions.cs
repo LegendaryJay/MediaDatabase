@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using MediaLibrary.Application.AddMedia.MediaEnum;
 using MediaLibrary.Application.AddMedia.QuestionComponents;
 using MediaLibrary.Domain;
 using MediaLibrary.Infrastructure;
@@ -18,11 +18,6 @@ namespace MediaLibrary.Application.AddMedia
         {
             _mediaType = mediaType;
             _questionList = questions;
-        }
-
-        public Questions(MediaType mediaType, params QuestionBase[] questions) :
-            this(mediaType, questions.ToList())
-        {
         }
 
         private static bool IsExit(string str)

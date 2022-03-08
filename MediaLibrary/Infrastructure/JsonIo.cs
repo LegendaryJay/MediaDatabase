@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using MediaLibrary.Application.AddMedia.MediaEnum;
 using MediaLibrary.Domain;
 using Newtonsoft.Json;
 using NLog;
