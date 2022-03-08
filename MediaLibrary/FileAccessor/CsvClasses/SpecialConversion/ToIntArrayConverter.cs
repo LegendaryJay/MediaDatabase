@@ -5,7 +5,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 
-namespace MediaLibrary.FileAccessor.CsvClasses
+namespace MediaLibrary.FileAccessor.CsvClasses.SpecialConversion
 {
     public class ToIntArrayConverter : TypeConverter
     {

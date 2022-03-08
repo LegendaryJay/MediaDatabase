@@ -1,7 +1,8 @@
 ﻿using CsvHelper.Configuration;
+using MediaLibrary.FileAccessor.CsvClasses.SpecialConversion;
 using MediaLibrary.MediaEntities;
 
-namespace MediaLibrary.FileAccessor.CsvClasses
+namespace MediaLibrary.FileAccessor.CsvClasses.Maps
 {
     public sealed class ShowMap : ClassMap<Show>
     {
