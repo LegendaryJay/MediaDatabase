@@ -5,7 +5,7 @@ using MediaLibrary.MediaEntities;
 
 namespace MediaLibrary.ConsoleMenus.AddMedia.QuestionComponents
 {
-    public class Question<TMedia,T> : QuestionBase
+    public class Question<TMedia, T> : QuestionBase
         where TMedia : Media
     {
         public Question(Expression<Func<TMedia, T>> property)
@@ -23,7 +23,5 @@ namespace MediaLibrary.ConsoleMenus.AddMedia.QuestionComponents
                 TypeConvert.Convert<string, T>(input)
             );
         }
-
-
     }
 }

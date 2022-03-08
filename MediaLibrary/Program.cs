@@ -1,5 +1,4 @@
-﻿using System;
-using MediaLibrary.ConsoleMenus;
+﻿using MediaLibrary.ConsoleMenus;
 using NLog;
 
 namespace MediaLibrary
@@ -10,8 +9,7 @@ namespace MediaLibrary
 
         public static void Main(string[] args)
         {
-            var menu = new MainMenu();
-            menu.Run();
+            new MainMenu().Run();
         }
     }
 }

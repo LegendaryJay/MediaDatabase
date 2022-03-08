@@ -12,10 +12,7 @@ namespace MediaLibrary.MediaEntities
             get => _title;
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new Exception("Empty string");
-                }
+                if (string.IsNullOrWhiteSpace(value)) throw new Exception("Empty string");
                 _title = value;
             }
         }

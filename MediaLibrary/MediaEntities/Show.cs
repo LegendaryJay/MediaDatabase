@@ -7,8 +7,8 @@ namespace MediaLibrary.MediaEntities
     public class Show : Media
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        private int _seasons;
         private int _episodes;
+        private int _seasons;
         private List<string> _writers;
 
         public int Seasons
@@ -16,10 +16,7 @@ namespace MediaLibrary.MediaEntities
             get => _seasons;
             set
             {
-                if (value < 1)
-                {
-                    throw new Exception("Empty seasons");
-                }
+                if (value < 1) throw new Exception("Empty seasons");
                 _seasons = value;
             }
         }
@@ -29,10 +26,7 @@ namespace MediaLibrary.MediaEntities
             get => _episodes;
             set
             {
-                if (value < 1)
-                {
-                    throw new Exception("Empty seasons");
-                }
+                if (value < 1) throw new Exception("Empty seasons");
                 _episodes = value;
             }
         }
@@ -42,10 +36,7 @@ namespace MediaLibrary.MediaEntities
             get => _writers;
             set
             {
-                if (value is null || value.Count == 0)
-                {
-                    throw new Exception("Empty writers");
-                }
+                if (value is null || value.Count == 0) throw new Exception("Empty writers");
                 _writers = value;
             }
         }

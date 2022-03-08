@@ -10,7 +10,7 @@ namespace MediaLibrary.FileAccessor.JsonClasses
 {
     public class JsonIo<T>
         : IFileIo
-    where T : Media
+        where T : Media
     {
         private readonly string _filePath;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
@@ -18,7 +18,7 @@ namespace MediaLibrary.FileAccessor.JsonClasses
         public JsonIo(MediaType mediaType)
         {
             _filePath = Path.Combine("../../", "Files", mediaType.ToPluralString() + ".json");
-            
+
             ValidateFile();
         }
 

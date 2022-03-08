@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MediaLibrary.FileAccessor;
 using MediaLibrary.FileInteractions;
 using MediaLibrary.MediaEntities;
 using MediaLibrary.MediaEntities.MediaEnum;
@@ -14,9 +13,9 @@ namespace MediaLibrary.ConsoleMenus
         private const int ItemsPerPage = 5;
         private readonly MediaFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
+        private string _cachedPage;
         private List<Media> _medias;
         private int _page;
-        private string _cachedPage;
 
         public DisplayMenu(MediaType mediaType) : base($"{mediaType.ToPluralString()} Display", 2)
         {
@@ -25,10 +24,7 @@ namespace MediaLibrary.ConsoleMenus
             ThisMenu.Add("Previous", Previous)
                 .Add("Next", Next)
                 .Configure(
-                    config =>
-                    {
-                        config.WriteHeaderAction = Display;
-                    }
+                    config => { config.WriteHeaderAction = Display; }
                 );
         }
 

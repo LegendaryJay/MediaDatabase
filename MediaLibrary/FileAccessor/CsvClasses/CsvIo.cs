@@ -11,8 +11,8 @@ using NLog;
 
 namespace MediaLibrary.FileAccessor.CsvClasses
 {
-    public class CsvIo<T1, T2> : IFileIo 
-        where T1 : Media 
+    public class CsvIo<T1, T2> : IFileIo
+        where T1 : Media
         where T2 : ClassMap
     {
         private readonly string _filePath;
@@ -21,15 +21,8 @@ namespace MediaLibrary.FileAccessor.CsvClasses
         public CsvIo(MediaType mediaType)
         {
             _filePath = Path.Combine("../../", "Files", mediaType.ToPluralString() + ".csv");
-            
-            ValidateFile();
-        }
 
-        private void CreateFile()
-        {
-            using var writer = new StreamWriter(_filePath);
-            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            csv.WriteHeader<T2>();
+            ValidateFile();
         }
 
 
@@ -49,12 +42,18 @@ namespace MediaLibrary.FileAccessor.CsvClasses
             {
                 ShouldQuote = args => false
             };
-            
+
             using var reader = new StreamReader(_filePath);
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             csv.Context.RegisterClassMap<T2>();
             return csv.GetRecords<T1>().ToList().ConvertAll(x => (Media) x);
+        }
 
+        private void CreateFile()
+        {
+            using var writer = new StreamWriter(_filePath);
+            using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            csv.WriteHeader<T2>();
         }
 
         private void ValidateFile()

@@ -27,7 +27,7 @@ namespace MediaLibrary.FileInteractions
                 Console.WriteLine("Something went wrong :(");
                 return;
             }
-            
+
             _log.Trace("New media being created");
 
             var medias = GetAll();
@@ -37,7 +37,7 @@ namespace MediaLibrary.FileInteractions
             if (medias.Count > 0)
             {
                 lastId = medias.Select(movie => movie.Id).Max();
-                
+
                 if (medias.Any(media => media.Title == newMedia.Title))
                 {
                     _log.Info($"Repeat Media input. user input: {newMedia.Title}");
@@ -45,6 +45,7 @@ namespace MediaLibrary.FileInteractions
                     return;
                 }
             }
+
             _log.Debug($"Media's Highest ID is {lastId}");
 
             newMedia.Id = lastId + 1;
@@ -60,7 +61,6 @@ namespace MediaLibrary.FileInteractions
         {
             _log.Trace("Movies Pulled from records");
             return _fileIo.GetAllMedia() ?? new List<Media>();
-
         }
     }
 }

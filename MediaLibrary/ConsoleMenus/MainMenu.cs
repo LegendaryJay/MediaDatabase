@@ -14,7 +14,7 @@ namespace MediaLibrary.ConsoleMenus
                 )
                 .Add("Shows", () =>
                     {
-                        var mediaMenu = new  MediaMenu(MediaType.Show);
+                        var mediaMenu = new MediaMenu(MediaType.Show);
                         mediaMenu.Run();
                     }
                 )

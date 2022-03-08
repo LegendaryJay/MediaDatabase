@@ -14,10 +14,7 @@ namespace MediaLibrary.MediaEntities
             get => _genres;
             set
             {
-                if (value is null || value.Count == 0)
-                {
-                    throw new Exception("Empty genre");
-                }
+                if (value is null || value.Count == 0) throw new Exception("Empty genre");
                 _genres = value;
             }
         }

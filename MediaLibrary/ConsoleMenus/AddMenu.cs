@@ -7,6 +7,7 @@ namespace MediaLibrary.ConsoleMenus
     public class AddMenu
     {
         private readonly IQuestions _questions;
+
         public AddMenu(MediaType mediaType)
         {
             _questions = QuestionsFactory.GetQuestions(mediaType);
@@ -18,9 +19,8 @@ namespace MediaLibrary.ConsoleMenus
             {
                 _questions.Ask();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //Ignore
                 Console.WriteLine("Something went wrong");
             }
             finally

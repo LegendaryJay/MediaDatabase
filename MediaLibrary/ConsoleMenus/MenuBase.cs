@@ -12,14 +12,13 @@ namespace MediaLibrary.ConsoleMenus
             ThisMenu = new ConsoleMenu(new string[] { }, level)
                 .Add("Close", ConsoleMenu.Close)
                 .Configure(
-                config =>
-                {
-                    config.EnableBreadcrumb = true;
-                    config.Title = title;
-                    config.WriteBreadcrumbAction = titles => Console.WriteLine(string.Join(" > ", titles));
-                    
-                }
-            );
+                    config =>
+                    {
+                        config.EnableBreadcrumb = true;
+                        config.Title = title;
+                        config.WriteBreadcrumbAction = titles => Console.WriteLine(string.Join(" > ", titles));
+                    }
+                );
         }
 
         public virtual void Run()
