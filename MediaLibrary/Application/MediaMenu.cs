@@ -1,5 +1,4 @@
-﻿using MediaLibrary.Domain;
-using MediaLibrary.Infrastructure;
+﻿using MediaLibrary.Infrastructure;
 using NLog;
 
 namespace MediaLibrary.Application

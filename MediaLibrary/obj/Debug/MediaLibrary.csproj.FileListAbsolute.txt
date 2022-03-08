@@ -81,3 +81,5 @@ C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\obj\Debug\MediaLibrary.
 C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\bin\Debug\Json.Net.dll
 C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\bin\Debug\Newtonsoft.Json.dll
 C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\bin\Debug\TypeConvert.dll
+C:\Users\amore\RiderProjects\MediaDatabase2\MediaLibrary\bin\Debug\TypeConvert.xml

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CsvHelper.Configuration;
 using NLog;
 
@@ -7,7 +8,20 @@ namespace MediaLibrary.Domain
     public class Movie : Media
     {
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        public List<string> Genres { get; set; }
+        private List<string> _genres;
+
+        public List<string> Genres
+        {
+            get => _genres;
+            set
+            {
+                if (value is null || value.Count == 0)
+                {
+                    throw new Exception("Empty genre");
+                }
+                _genres = value;
+            }
+        }
 
         public override string ToPrettyString()
         {

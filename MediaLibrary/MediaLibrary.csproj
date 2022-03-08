@@ -199,6 +199,10 @@
             <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
             <Private>True</Private>
         </Reference>
+        <Reference Include="TypeConvert, Version=2.1.6.0, Culture=neutral, PublicKeyToken=7fa17a4c44bad980">
+          <HintPath>..\packages\TypeConvert.2.1.6\lib\net45\TypeConvert.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
             <HintPath>..\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll</HintPath>
             <Private>True</Private>
@@ -217,11 +221,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Application\AddMedia\Questions\MovieQuestions.cs" />
-        <Compile Include="Application\AddMedia\Questions\Question.cs" />
-        <Compile Include="Application\AddMedia\Questions\Questions.cs" />
-        <Compile Include="Application\AddMedia\Questions\ShowQuestions.cs" />
-        <Compile Include="Application\AddMedia\Questions\VideoQuestions.cs" />
+        <Compile Include="Application\AddMedia\IQuestions.cs" />
+        <Compile Include="Application\AddMedia\QuestionComponents\Question.cs" />
+        <Compile Include="Application\AddMedia\QuestionComponents\QuestionBase.cs" />
+        <Compile Include="Application\AddMedia\QuestionComponents\QuestionList.cs" />
+        <Compile Include="Application\AddMedia\Questions.cs" />
+        <Compile Include="Application\AddMedia\QuestionsFactory.cs" />
         <Compile Include="Domain\IFileIO.cs" />
         <Compile Include="Domain\Media.cs" />
         <Compile Include="Domain\MediaFileIO.cs" />
@@ -234,7 +239,6 @@
         <Compile Include="Infrastructure\MediaType.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Application\AddMedia\QuestionFactory.cs" />
         <Compile Include="Application\AddMenu.cs" />
         <Compile Include="Application\DisplayMenu.cs" />
         <Compile Include="Application\MainMenu.cs" />

@@ -1,5 +1,4 @@
 ﻿using System;
-using MediaLibrary.Application;
 using MediaLibrary.Domain;
 
 namespace MediaLibrary.Infrastructure
