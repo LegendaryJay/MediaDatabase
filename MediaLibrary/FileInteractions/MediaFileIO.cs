@@ -12,12 +12,10 @@ namespace MediaLibrary.FileInteractions
     {
         private readonly IFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
-        public readonly MediaType MediaType;
 
-        public MediaFileIo(MediaType mediaType, IFileIo fileIo)
+        public MediaFileIo(IFileIo fileIo)
         {
             _fileIo = fileIo;
-            MediaType = mediaType;
         }
 
         public void AddMedia(Media newMedia)
@@ -52,8 +50,7 @@ namespace MediaLibrary.FileInteractions
             medias.Add(newMedia);
 
 
-            Console.WriteLine(_fileIo.WriteFile(medias) ? "Recorded Successfully!" : "Something went wrong");
-            Console.WriteLine("Media Created!");
+            Console.WriteLine(_fileIo.WriteFile(medias) ? "Successfully Recorded!" : "Something went wrong");
             _log.Info("New Media Added.");
         }
 

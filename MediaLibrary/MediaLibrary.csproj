@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props')"/>
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <Import Project="..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props')" />
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -63,7 +63,7 @@
             <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="mscorlib"/>
+        <Reference Include="mscorlib" />
         <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
             <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
             <Private>True</Private>
@@ -72,7 +72,7 @@
             <HintPath>..\packages\NLog.5.0.0-rc2\lib\net46\NLog.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System"/>
+        <Reference Include="System" />
         <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
             <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
             <Private>True</Private>
@@ -81,12 +81,12 @@
             <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System.ComponentModel.Composition"/>
+        <Reference Include="System.ComponentModel.Composition" />
         <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
             <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System.Core"/>
+        <Reference Include="System.Core" />
         <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
             <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
             <Private>True</Private>
@@ -107,7 +107,7 @@
             <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System.IO.Compression.FileSystem"/>
+        <Reference Include="System.IO.Compression.FileSystem" />
         <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
             <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
             <Private>True</Private>
@@ -140,7 +140,7 @@
             <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System.Numerics"/>
+        <Reference Include="System.Numerics" />
         <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
             <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
             <Private>True</Private>
@@ -193,8 +193,8 @@
             <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
             <Private>True</Private>
         </Reference>
-        <Reference Include="System.Xml"/>
-        <Reference Include="System.Xml.Linq"/>
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml.Linq" />
         <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
             <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
             <Private>True</Private>
@@ -221,63 +221,63 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ConsoleMenus\AddMedia\IQuestions.cs"/>
-        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\Question.cs"/>
-        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\QuestionBase.cs"/>
-        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\QuestionList.cs"/>
-        <Compile Include="ConsoleMenus\AddMedia\Questions.cs"/>
-        <Compile Include="ConsoleMenus\AddMedia\QuestionsFactory.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\CsvIo.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\MovieMap.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\ShowMap.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\ToIntArrayConverter.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\ToStringArrayConverter.cs"/>
-        <Compile Include="FileAccessor\CsvClasses\VideoMap.cs"/>
-        <Compile Include="FileAccessor\IFileIO.cs"/>
-        <Compile Include="FileAccessor\JsonClasses\JsonIo.cs"/>
-        <Compile Include="FileInteractions\MediaFileIO.cs"/>
-        <Compile Include="FileInteractions\MediaFileIOFactory.cs"/>
-        <Compile Include="MediaEntities\Media.cs"/>
-        <Compile Include="MediaEntities\MediaEnum\MediaType.cs"/>
-        <Compile Include="MediaEntities\MediaEnum\MediaTypeExtensions.cs"/>
-        <Compile Include="MediaEntities\Movie.cs"/>
-        <Compile Include="MediaEntities\Show.cs"/>
-        <Compile Include="MediaEntities\Video.cs"/>
-        <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="ConsoleMenus\AddMenu.cs"/>
-        <Compile Include="ConsoleMenus\DisplayMenu.cs"/>
-        <Compile Include="ConsoleMenus\MainMenu.cs"/>
-        <Compile Include="ConsoleMenus\MediaMenu.cs"/>
-        <Compile Include="ConsoleMenus\MenuBase.cs"/>
-        <Compile Include="Tests\MenuStructureCoreTests.cs"/>
+        <Compile Include="ConsoleMenus\AddMedia\IQuestions.cs" />
+        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\Question.cs" />
+        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\QuestionBase.cs" />
+        <Compile Include="ConsoleMenus\AddMedia\QuestionComponents\QuestionList.cs" />
+        <Compile Include="ConsoleMenus\AddMedia\Questions.cs" />
+        <Compile Include="ConsoleMenus\AddMedia\QuestionsFactory.cs" />
+        <Compile Include="FileAccessor\CsvClasses\CsvIo.cs" />
+        <Compile Include="FileAccessor\CsvClasses\SpecialConversion\ToIntArrayConverter.cs" />
+        <Compile Include="FileAccessor\CsvClasses\SpecialConversion\ToStringArrayConverter.cs" />
+        <Compile Include="FileAccessor\CsvClasses\Maps\MovieMap.cs" />
+        <Compile Include="FileAccessor\CsvClasses\Maps\ShowMap.cs" />
+        <Compile Include="FileAccessor\CsvClasses\Maps\VideoMap.cs" />
+        <Compile Include="FileAccessor\IFileIO.cs" />
+        <Compile Include="FileAccessor\JsonClasses\JsonIo.cs" />
+        <Compile Include="FileInteractions\MediaFileIO.cs" />
+        <Compile Include="FileInteractions\MediaFileIOFactory.cs" />
+        <Compile Include="MediaEntities\Media.cs" />
+        <Compile Include="MediaEntities\MediaEnum\MediaType.cs" />
+        <Compile Include="MediaEntities\MediaEnum\MediaTypeExtensions.cs" />
+        <Compile Include="MediaEntities\Movie.cs" />
+        <Compile Include="MediaEntities\Show.cs" />
+        <Compile Include="MediaEntities\Video.cs" />
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ConsoleMenus\AddMenu.cs" />
+        <Compile Include="ConsoleMenus\DisplayMenu.cs" />
+        <Compile Include="ConsoleMenus\MainMenu.cs" />
+        <Compile Include="ConsoleMenus\MediaMenu.cs" />
+        <Compile Include="ConsoleMenus\MenuBase.cs" />
+        <Compile Include="Tests\MenuStructureCoreTests.cs" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
-        <None Include="packages.config"/>
+        <None Include="App.config" />
+        <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-        <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll"/>
+        <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="Files\movies.csv"/>
-        <Content Include="Files\movies.json"/>
-        <Content Include="Files\shows.csv"/>
-        <Content Include="Files\shows.json"/>
-        <Content Include="Files\Videos.csv"/>
-        <Content Include="Files\videos.json"/>
+        <Content Include="Files\movies.csv" />
+        <Content Include="Files\movies.json" />
+        <Content Include="Files\shows.csv" />
+        <Content Include="Files\shows.json" />
+        <Content Include="Files\Videos.csv" />
+        <Content Include="Files\videos.json" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-    <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets')"/>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
         <PropertyGroup>
             <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
         </PropertyGroup>
-        <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets'))"/>
-        <Error Condition="!Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props'))"/>
-        <Error Condition="!Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets'))"/>
+        <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0-preview.1.22076.8\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+        <Error Condition="!Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.props'))" />
+        <Error Condition="!Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets'))" />
     </Target>
-    <Import Project="..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets')"/>
+    <Import Project="..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.2-pre.12\build\xunit.core.targets')" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

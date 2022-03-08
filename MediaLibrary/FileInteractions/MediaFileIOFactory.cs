@@ -10,7 +10,6 @@ namespace MediaLibrary.FileInteractions
         public static MediaFileIo GetFileIo(MediaType mediaType)
         {
             return new MediaFileIo(
-                mediaType,
                 mediaType switch
                 {
                     MediaType.Movie => new JsonIo<Movie>(mediaType),
