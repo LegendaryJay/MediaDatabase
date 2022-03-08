@@ -1,5 +1,5 @@
 ﻿using System;
-using MediaLibrary.Application;
+using MediaLibrary.ConsoleMenus;
 using NLog;
 
 namespace MediaLibrary
