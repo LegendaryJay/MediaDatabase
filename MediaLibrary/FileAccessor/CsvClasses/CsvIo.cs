@@ -38,10 +38,10 @@ namespace MediaLibrary.FileAccessor.CsvClasses
 
         public List<Media> GetAllMedia()
         {
-            var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
-            {
-                ShouldQuote = args => false
-            };
+            // var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+            // {
+            //     ShouldQuote = args => false
+            // };
 
             using var reader = new StreamReader(_filePath);
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);

@@ -9,6 +9,7 @@ namespace MediaLibrary
 
         public static void Main(string[] args)
         {
+            Log.Trace("Program starting up");
             new MainMenu().Run();
         }
     }

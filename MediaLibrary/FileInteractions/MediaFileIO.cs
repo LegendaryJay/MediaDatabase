@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using MediaLibrary.FileAccessor;
 using MediaLibrary.MediaEntities;
-using MediaLibrary.MediaEntities.MediaEnum;
 using NLog;
 
 namespace MediaLibrary.FileInteractions

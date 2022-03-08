@@ -11,14 +11,15 @@ namespace MediaLibrary.ConsoleMenus
         {
             ThisMenu.Add("Display All", () =>
                     {
-                        var menu = new DisplayMenu(mediaType);
-                        menu.Run();
+                        _log.Trace("Display All Selected");
+                        new DisplayMenu(mediaType).Run();
                     }
                 )
                 .Add("Add to File", () =>
                     {
-                        var menu = new AddMenu(mediaType);
-                        menu.Run();
+                        _log.Trace("Add to File Selected");
+                        new AddMenu(mediaType).Run();
+
                     }
                 );
         }
