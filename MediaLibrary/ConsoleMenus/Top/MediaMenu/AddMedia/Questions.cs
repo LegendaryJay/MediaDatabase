@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using MediaLibrary.ConsoleMenus.AddMedia.QuestionComponents;
+using MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia.QuestionComponents;
 using MediaLibrary.FileInteractions;
 using MediaLibrary.MediaEntities;
 using MediaLibrary.MediaEntities.MediaEnum;
+using static MediaLibrary.ConsoleMenus.Tools.ManualInputTools;
 
-namespace MediaLibrary.ConsoleMenus.AddMedia
+namespace MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia
 {
     public class Questions<TMedia> : IQuestions
         where TMedia : Media, new()
     {
-        private const string CancelKey = "X";
         private readonly MediaType _mediaType;
         private readonly List<QuestionBase> _questionList;
 
@@ -47,15 +47,6 @@ namespace MediaLibrary.ConsoleMenus.AddMedia
             MediaFileIoFactory.GetFileIo(_mediaType).AddMedia(media);
         }
 
-        private static bool IsExit(string str)
-        {
-            return string.IsNullOrWhiteSpace(str)
-                   || string.Equals(str.Trim(), CancelKey, StringComparison.OrdinalIgnoreCase);
-        }
-
-        private static string Input()
-        {
-            return Console.ReadLine();
-        }
+        
     }
 }

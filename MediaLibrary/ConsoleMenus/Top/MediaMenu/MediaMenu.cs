@@ -1,7 +1,10 @@
-﻿using MediaLibrary.MediaEntities.MediaEnum;
+﻿using MediaLibrary.ConsoleMenus.Multi_purpose;
+using MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia;
+using MediaLibrary.ConsoleMenus.Top.MediaMenu.DisplayMedia;
+using MediaLibrary.MediaEntities.MediaEnum;
 using NLog;
 
-namespace MediaLibrary.ConsoleMenus
+namespace MediaLibrary.ConsoleMenus.Top.MediaMenu
 {
     public class MediaMenu : MenuBase
     {
@@ -12,7 +15,7 @@ namespace MediaLibrary.ConsoleMenus
             ThisMenu.Add("Display All", () =>
                     {
                         _log.Trace("Display All Selected");
-                        new DisplayMenu(mediaType).Run();
+                        new MediaDisplayMenu(mediaType).Run();
                     }
                 )
                 .Add("Add to File", () =>
@@ -21,7 +24,14 @@ namespace MediaLibrary.ConsoleMenus
                         new AddMenu(mediaType).Run();
 
                     }
-                );
+                )
+                .Add("Search", () =>
+                {
+                    _log.Trace("Search function");
+                    new SearchMedia(mediaType, 0).Run();
+
+                }
+            );
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using ConsoleTools;
 
-namespace MediaLibrary.ConsoleMenus
+namespace MediaLibrary.ConsoleMenus.Multi_purpose
 {
     public abstract class MenuBase
     {

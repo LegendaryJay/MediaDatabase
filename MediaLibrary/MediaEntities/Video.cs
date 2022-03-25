@@ -25,7 +25,7 @@ namespace MediaLibrary.MediaEntities
             get => _regions;
             set
             {
-                if (_regions.Count < 1) throw new Exception("Empty regions");
+                 if (value.Count < 1) throw new Exception("Empty regions");
                 _regions = value;
             }
         }

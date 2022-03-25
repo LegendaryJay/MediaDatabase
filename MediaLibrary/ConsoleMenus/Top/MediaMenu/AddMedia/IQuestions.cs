@@ -1,4 +1,4 @@
-﻿namespace MediaLibrary.ConsoleMenus.AddMedia
+﻿namespace MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia
 {
     public interface IQuestions
     {

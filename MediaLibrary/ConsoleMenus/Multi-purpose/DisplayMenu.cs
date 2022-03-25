@@ -1,42 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MediaLibrary.FileInteractions;
-using MediaLibrary.MediaEntities;
-using MediaLibrary.MediaEntities.MediaEnum;
 using NLog;
 
-namespace MediaLibrary.ConsoleMenus
+namespace MediaLibrary.ConsoleMenus.Multi_purpose
 {
-    public class DisplayMenu : MenuBase
+    public class DisplayMenu<T> : MenuBase
     {
         private const int ItemsPerPage = 5;
-        private readonly MediaFileIo _fileIo;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
         private string _cachedPage;
-        private List<Media> _medias;
+        private readonly List<T> _items;
         private int _page;
+        private readonly Func<T, string> _toStringFunc;
 
-        public DisplayMenu(MediaType mediaType) : base($"{mediaType.ToPluralString()} Display", 2)
+        public DisplayMenu(List<T> items, Func<T, string> toString, string title, int level) : base(title, level)
         {
-            _fileIo = MediaFileIoFactory.GetFileIo(mediaType);
-            UpdatePage();
+            _items = items;
+            _toStringFunc = toString;
             ThisMenu.Add("Previous", Previous)
                 .Add("Next", Next)
                 .Configure(
                     config => { config.WriteHeaderAction = Display; }
                 );
-        }
-
-        private void UpdateMedia()
-        {
-            _log.Trace("Media updating.");
-            _medias = _fileIo.GetAll();
+            UpdatePage();
         }
 
         private void ChangePage(int direction)
         {
-            _page = (_page + direction + GetPages()) % GetPages();
+            _page = (_page + direction + GetPageCount()) % GetPageCount();
             UpdatePage();
             _log.Trace($"Changed Page to {_page}");
         }
@@ -53,19 +45,18 @@ namespace MediaLibrary.ConsoleMenus
             ChangePage(-1);
         }
 
-        private int GetPages()
+        private int GetPageCount()
         {
             _log.Trace("Got pages");
-            return Math.Max(1, (int) Math.Ceiling(_medias.Count / (double) ItemsPerPage));
+            return Math.Max(1, (int) Math.Ceiling(_items.Count / (double) ItemsPerPage));
         }
 
         private void UpdatePage()
         {
-            UpdateMedia();
             var sb = new StringBuilder();
-            sb.AppendLine($"Page {_page + 1} / {GetPages()}");
-            for (var i = _page * ItemsPerPage; i < Math.Min((_page + 1) * ItemsPerPage, _medias.Count); i++)
-                sb.AppendLine(_medias[i].ToPrettyString());
+            sb.AppendLine($"Page {_page + 1} / {GetPageCount()}");
+            for (var i = _page * ItemsPerPage; i < Math.Min((_page + 1) * ItemsPerPage, _items.Count); i++)
+                sb.AppendLine(_toStringFunc(_items[i]));
             _cachedPage = sb.ToString();
             _log.Trace("Got list of Media");
         }
@@ -80,5 +71,6 @@ namespace MediaLibrary.ConsoleMenus
             base.Run();
             Display();
         }
-    }
+    }                   
 }
+

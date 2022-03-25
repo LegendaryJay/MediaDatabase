@@ -1,8 +1,7 @@
 ﻿using System;
-using MediaLibrary.ConsoleMenus.AddMedia;
 using MediaLibrary.MediaEntities.MediaEnum;
 
-namespace MediaLibrary.ConsoleMenus
+namespace MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia
 {
     public class AddMenu
     {

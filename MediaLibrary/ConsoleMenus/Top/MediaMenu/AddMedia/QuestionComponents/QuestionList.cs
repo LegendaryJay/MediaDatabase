@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using MediaLibrary.MediaEntities;
 
-namespace MediaLibrary.ConsoleMenus.AddMedia.QuestionComponents
+namespace MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia.QuestionComponents
 {
     public class QuestionList<TMedia, T> : QuestionBase
         where TMedia : Media

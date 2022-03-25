@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using MediaLibrary.ConsoleMenus.AddMedia.QuestionComponents;
+using MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia.QuestionComponents;
 using MediaLibrary.MediaEntities;
 using MediaLibrary.MediaEntities.MediaEnum;
 
-namespace MediaLibrary.ConsoleMenus.AddMedia
+namespace MediaLibrary.ConsoleMenus.Top.MediaMenu.AddMedia
 {
     public static class QuestionsFactory
     {
