@@ -13,11 +13,13 @@ namespace MediaLibrary.ConsoleMenus.Multi_purpose
         private readonly List<T> _items;
         private int _page;
         private readonly Func<T, string> _toStringFunc;
+        private readonly int _resultCount;
 
         public DisplayMenu(List<T> items, Func<T, string> toString, string title, int level) : base(title, level)
         {
             _items = items;
             _toStringFunc = toString;
+            _resultCount = _items.Count;
             ThisMenu.Add("Previous", Previous)
                 .Add("Next", Next)
                 .Configure(
@@ -48,13 +50,13 @@ namespace MediaLibrary.ConsoleMenus.Multi_purpose
         private int GetPageCount()
         {
             _log.Trace("Got pages");
-            return Math.Max(1, (int) Math.Ceiling(_items.Count / (double) ItemsPerPage));
+            return Math.Max(1, (int) Math.Ceiling(_resultCount / (double) ItemsPerPage));
         }
 
         private void UpdatePage()
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"Page {_page + 1} / {GetPageCount()}");
+            sb.AppendLine($"Page {_page + 1} / {GetPageCount()}\n{_resultCount} items found");
             for (var i = _page * ItemsPerPage; i < Math.Min((_page + 1) * ItemsPerPage, _items.Count); i++)
                 sb.AppendLine(_toStringFunc(_items[i]));
             _cachedPage = sb.ToString();
